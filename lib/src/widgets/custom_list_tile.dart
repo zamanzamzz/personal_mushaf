@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
+  final String portionLength;
+  final String pageNumber;
+  final String leading;
   final Color color;
   final VoidCallback onTap;
 
-  CustomListTile({this.title, this.subtitle, this.color, this.onTap});
+  CustomListTile(
+      {this.portionLength,
+      this.pageNumber,
+      this.color,
+      this.leading,
+      this.onTap});
 
   Widget build(context) {
     return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.black12,
       onTap: onTap,
       child: Ink(
         height: 80,
@@ -18,18 +26,44 @@ class CustomListTile extends StatelessWidget {
           children: [
             Positioned(
               left: 16,
-              top: 15,
               child: Text(
-                title,
-                style: TextStyle(color: Colors.white),
+                leading,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 28,
+                ),
+                textAlign: TextAlign.right,
               ),
             ),
             Positioned(
-              left: 16,
+              left: 64,
+              top: 15,
+              child: Text(
+                pageNumber,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 64,
               bottom: 15,
               child: Text(
-                subtitle,
-                style: TextStyle(color: Colors.white),
+                portionLength,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Positioned(
+              right: 24,
+              child: Text(
+                'وَإِذِ اسْتَسْقَىٰ مُوسَىٰ لِقَوْمِهِ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 19,
+                ),
+                textAlign: TextAlign.start,
               ),
             ),
           ],

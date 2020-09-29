@@ -78,17 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 NavigationTab(
                   numOfItems: 30,
-                  title: 'Juz',
                   subtitle: '30',
                 ),
                 NavigationTab(
                   numOfItems: 16,
-                  title: 'Ruku',
                   subtitle: '40',
                 ),
                 NavigationTab(
                   numOfItems: 114,
-                  title: 'Surah',
                   subtitle: '50',
                 ),
               ],
