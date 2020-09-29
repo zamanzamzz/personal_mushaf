@@ -59,14 +59,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               actions: <Widget>[
                 PopupMenuTheme(
-                  data: PopupMenuThemeData(color: Color.fromRGBO(50, 53, 58, 1), textStyle: TextStyle(color: Colors.white)),
+                  data: PopupMenuThemeData(
+                      color: Color.fromRGBO(50, 53, 58, 1),
+                      textStyle: TextStyle(color: Colors.white)),
                   child: PopupMenuButton<String>(
                     onSelected: (value) {},
                     itemBuilder: (BuildContext context) {
-                      return {'Logout', 'Settings'}.map((String choice) {
+                      return {'Settings'}.map((String choice) {
                         return PopupMenuItem<String>(
                           value: choice,
-                          child: Text(choice),
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                              choice,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ),
                         );
                       }).toList();
                     },
