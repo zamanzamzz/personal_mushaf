@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
-  final String portionLength;
-  final String pageNumber;
+  final double portionLength;
+  final int pageNumber;
   final String leading;
   final Color color;
   final VoidCallback onTap;
@@ -15,13 +15,13 @@ class CustomListTile extends StatelessWidget {
       this.onTap});
 
   Widget build(context) {
-    return InkWell(
-      splashColor: Colors.transparent,
-      highlightColor: Colors.black12,
-      onTap: onTap,
-      child: Ink(
-        height: 80,
-        width: MediaQuery.of(context).size.width,
+    return Ink(
+      height: 80,
+      width: MediaQuery.of(context).size.width,
+      child: InkWell(
+        splashColor: Colors.grey,
+        highlightColor: Colors.black12,
+        onTap: onTap,
         child: Stack(
           children: [
             Positioned(
@@ -39,7 +39,7 @@ class CustomListTile extends StatelessWidget {
               left: 64,
               top: 15,
               child: Text(
-                pageNumber,
+                '${portionLength.toStringAsFixed(2)} pages',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -49,7 +49,7 @@ class CustomListTile extends StatelessWidget {
               left: 64,
               bottom: 15,
               child: Text(
-                portionLength,
+                '$pageNumber',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -69,8 +69,8 @@ class CustomListTile extends StatelessWidget {
           ],
           alignment: Alignment.center,
         ),
-        color: color,
       ),
+      color: color,
     );
   }
 }

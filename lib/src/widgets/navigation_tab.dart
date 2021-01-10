@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_mushaf/src/mixins/navigation_mixins/classic_madani_15_nav.dart';
 import 'custom_list_tile.dart';
 
 class NavigationTab extends StatefulWidget {
@@ -13,7 +14,7 @@ class NavigationTab extends StatefulWidget {
 }
 
 class NavigationTabState extends State<NavigationTab>
-    with AutomaticKeepAliveClientMixin<NavigationTab> {
+    with AutomaticKeepAliveClientMixin<NavigationTab>, ClassicMadani15Nav {
   final int numOfItems;
   final String title;
   final String subtitle;
@@ -62,8 +63,8 @@ class NavigationTabState extends State<NavigationTab>
       itemCount: numOfItems,
       itemBuilder: (context, index) {
         return CustomListTile(
-          pageNumber: '$subtitle pages',
-          portionLength: '${index + 1}',
+          portionLength: juzLengths[index % 30],
+          pageNumber: ClassicMadani15Nav.juzPageNumbers[index % 30],
           leading: arabicNumerals[index % 30],
           color: index % 2 == 0
               ? Color.fromRGBO(50, 53, 58, 1)
