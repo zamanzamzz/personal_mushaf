@@ -32,7 +32,7 @@ class ClassicMadani15Nav {
     582
   ];
 
-  List<int> surahPageNumbers = [
+  static List<int> surahPageNumbers = [
     1,
     2,
     50,
@@ -1018,7 +1018,7 @@ class ClassicMadani15Nav {
     ],
   ];
 
-  List<double> juzLengths = [
+  static List<double> juzLengths = [
     19.414391534392,
     19.992751322751,
     19.860317460317,
@@ -1051,7 +1051,7 @@ class ClassicMadani15Nav {
     18.047195767196,
   ];
 
-  List<double> surahLengths = [
+  static List<double> surahLengths = [
     0.219365079365,
     47.847936507937,
     26.793809523810,

@@ -4,15 +4,18 @@ class CustomListTile extends StatelessWidget {
   final double portionLength;
   final int pageNumber;
   final String leading;
+  final String prefix;
   final Color color;
   final VoidCallback onTap;
 
-  CustomListTile(
-      {this.portionLength,
-      this.pageNumber,
-      this.color,
-      this.leading,
-      this.onTap});
+  CustomListTile({
+    this.portionLength,
+    this.pageNumber,
+    this.color,
+    this.prefix,
+    this.leading,
+    this.onTap,
+  });
 
   Widget build(context) {
     return Ink(
@@ -58,12 +61,12 @@ class CustomListTile extends StatelessWidget {
             Positioned(
               right: 24,
               child: Text(
-                'وَإِذِ اسْتَسْقَىٰ مُوسَىٰ لِقَوْمِهِ',
+                prefix.trim(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 19,
                 ),
-                textAlign: TextAlign.start,
+                textAlign: TextAlign.right,
               ),
             ),
           ],

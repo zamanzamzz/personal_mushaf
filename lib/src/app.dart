@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/services.dart';
+import 'package:personal_mushaf/src/mixins/navigation_mixins/classic_madani_15_nav.dart';
+import 'package:personal_mushaf/src/mixins/string_resource_mixins/classic_madani_15_strings.dart';
 import 'widgets/navigation_tab.dart';
 
 class App extends StatelessWidget {
@@ -25,7 +27,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<String> tabTitles = ['JUZ', 'RUKU', 'SURAH'];
+  final List<String> tabTitles = ['JUZ', 'SURAH'];
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: mySystemTheme,
       child: DefaultTabController(
-        length: 3,
+        length: 2,
         child: ColorfulSafeArea(
           color: Color.fromRGBO(35, 38, 41, 1),
           child: Scaffold(
@@ -86,16 +88,14 @@ class _MyHomePageState extends State<MyHomePage> {
             body: TabBarView(
               children: [
                 NavigationTab(
-                  numOfItems: 30,
-                  subtitle: '30',
+                  prefixes: juzNames,
+                  lengths: ClassicMadani15Nav.juzLengths,
+                  pageNumbers: ClassicMadani15Nav.juzPageNumbers,
                 ),
                 NavigationTab(
-                  numOfItems: 16,
-                  subtitle: '40',
-                ),
-                NavigationTab(
-                  numOfItems: 114,
-                  subtitle: '50',
+                  prefixes: surahNamesArabic,
+                  lengths: ClassicMadani15Nav.surahLengths,
+                  pageNumbers: ClassicMadani15Nav.surahPageNumbers,
                 ),
               ],
             ),
