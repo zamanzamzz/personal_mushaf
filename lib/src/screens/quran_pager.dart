@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullscreen/fullscreen.dart';
+import 'package:personal_mushaf/src/widgets/quran_page.dart';
 
 class QuranPager extends StatefulWidget {
   final int initialPage;
@@ -30,20 +31,10 @@ class QuranPagerState extends State<QuranPager> {
           });
         },
         child: PageView.builder(
-          controller: pageController,
-          reverse: true,
-          itemCount: 604,
-          itemBuilder: (context, index) => Container(
-            alignment: Alignment.center,
-            color: Colors.white,
-            child: Image(
-              image: AssetImage(
-                  'lib/res/ClassicMadani15/classicmadani15_pg_${index + 1}.png'),
-              fit: BoxFit.contain,
-              filterQuality: FilterQuality.high,
-            ),
-          ),
-        ),
+            controller: pageController,
+            reverse: true,
+            itemCount: 604,
+            itemBuilder: (context, index) => QuranPage(index: index)),
       ),
       onWillPop: () async {
         bool isFullScreen = await fullscreen.isFullScreen;
