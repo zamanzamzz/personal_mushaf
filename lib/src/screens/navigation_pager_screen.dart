@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:personal_mushaf/src/mixins/navigation_mixins/classic_madani_15_nav.dart';
 import 'package:personal_mushaf/src/mixins/string_resource_mixins/classic_madani_15_strings.dart';
+import 'package:personal_mushaf/src/screens/quran_pager.dart';
 import 'package:personal_mushaf/src/widgets/navigation_tab.dart';
 
 class NavigationPagerScreen extends StatefulWidget {
@@ -77,11 +78,23 @@ class _NavigationPagerScreenState extends State<NavigationPagerScreen> {
                   prefixes: juzNames,
                   lengths: ClassicMadani15Nav.juzLengths,
                   pageNumbers: ClassicMadani15Nav.juzPageNumbers,
+                  onTap: (int index) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => QuranPager(
+                              initialPage: index,
+                            )));
+                  },
                 ),
                 NavigationTab(
                   prefixes: surahNamesArabic,
                   lengths: ClassicMadani15Nav.surahLengths,
                   pageNumbers: ClassicMadani15Nav.surahPageNumbers,
+                   onTap: (int index) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => QuranPager(
+                              initialPage: index,
+                            )));
+                  },
                 ),
               ],
             ),

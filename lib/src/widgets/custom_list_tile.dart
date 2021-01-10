@@ -6,7 +6,7 @@ class CustomListTile extends StatelessWidget {
   final String leading;
   final String prefix;
   final Color color;
-  final VoidCallback onTap;
+  final void Function(int) onTap;
 
   CustomListTile({
     this.portionLength,
@@ -24,7 +24,9 @@ class CustomListTile extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.grey,
         highlightColor: Colors.black12,
-        onTap: onTap,
+        onTap: () {
+          onTap(pageNumber - 1);
+        },
         child: Stack(
           children: [
             Positioned(

@@ -7,11 +7,13 @@ class NavigationTab extends StatefulWidget {
   final List<int> pageNumbers;
   final List<double> lengths;
   final List<String> prefixes;
+  final void Function(int) onTap;
 
   NavigationTab({
     @required this.pageNumbers,
     @required this.lengths,
     @required this.prefixes,
+    this.onTap,
   });
 
   NavigationTabState createState() {
@@ -39,7 +41,7 @@ class NavigationTabState extends State<NavigationTab>
           color: index % 2 == 0
               ? Color.fromRGBO(50, 53, 58, 1)
               : Color.fromRGBO(35, 38, 41, 1),
-          onTap: () {},
+          onTap: widget.onTap,
         );
       },
     );
