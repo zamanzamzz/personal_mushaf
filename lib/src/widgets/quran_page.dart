@@ -1,38 +1,29 @@
 import 'package:flutter/material.dart';
 
-class QuranPage extends StatelessWidget {
-  final int index;
+class QuranPage extends StatefulWidget {
+  final int pageNumber;
 
-  QuranPage({@required this.index});
+  QuranPage({@required this.pageNumber});
+
+  QuranPageState createState() {
+    return QuranPageState();
+  }
+}
+
+class QuranPageState extends State<QuranPage> {
+  QuranPageState();
 
   Widget build(context) {
-    return OrientationBuilder(
-      builder: (context, orientation) {
-        if (orientation == Orientation.portrait) {
-          return singlePage(index);
-        } else {
-          return Row(
-            children: [
-              Flexible(
-                child: singlePage(index + 1),
-              ),
-              Flexible(
-                child: singlePage(index),
-              ),
-            ],
-          );
-        }
-      },
-    );
+    return singlePage(widget.pageNumber);
   }
 
-  Widget singlePage(int index) {
+  Widget singlePage(int pageNumber) {
     return Container(
       alignment: Alignment.center,
       color: Colors.white,
       child: Image(
-        image: AssetImage(
-            'lib/res/ClassicMadani15/classicmadani15_pg_${index + 1}.png'),
+        image:
+            AssetImage('lib/res/ClassicMadani15/classicmadani15_pg_$pageNumber.png'),
         fit: BoxFit.contain,
         filterQuality: FilterQuality.high,
       ),

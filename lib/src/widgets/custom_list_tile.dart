@@ -25,7 +25,7 @@ class CustomListTile extends StatelessWidget {
         splashColor: Colors.grey,
         highlightColor: Colors.black12,
         onTap: () {
-          onTap(pageNumber - 1);
+          onTap(pageNumber);
         },
         child: Stack(
           children: [
